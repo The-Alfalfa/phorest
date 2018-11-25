@@ -1,0 +1,351 @@
+/*************/
+/* Bootstrap Overrides */
+/*************/
+$theme-colors: (
+  "primary": #66bb6a,
+  "secondary": #ffffff,
+  "link": #000000
+);
+@import "~bootstrap/scss/bootstrap";
+
+/*************/
+/* Sass Variables */
+/*************/
+$normalText: 1.125rem;
+$smallText: 1rem;
+$secondaryText: #607d8b;
+
+/*************/
+/* Layout, text and common elements */
+/*************/
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000000;
+    overflow-x: hidden;
+}
+footer {
+    position: relative;
+
+    > #shape {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        z-index: -1;
+    }
+}
+img {
+    max-width: 100%;
+}
+.btn {
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 13px 20px 0 rgba(118, 196, 125, 0.41);
+    padding: 8px 32px;
+
+    &.black-shadow{
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    &.btn-secondary {
+        color: theme-color("primary");
+        box-shadow: none;
+    }
+}
+h1 {
+    font-size: 2.125rem;
+    line-height: 1.39;
+    font-weight: 300;
+    margin-bottom: 40px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 2.875rem;
+        line-height: 1.21;
+    }
+}
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 32px;
+
+    > span {
+        color: theme-color('primary');
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: 2.25rem;
+    }
+}
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.9375rem;    
+    }
+}
+h4 {
+    font-size: $normalText;
+    margin: 21px 0;
+}
+p {
+    font-size: $normalText;
+    line-height: 1.78;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+}
+.text-center {
+    text-align: center;
+}
+
+/*************/
+/* Header */
+/*************/
+header {
+    padding: 60px 0;
+    height: auto;
+    
+    position: relative;
+
+    #hero {
+        height: auto;
+
+        .btn {
+            margin-top: 40px;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        height: 100vh;
+
+        #hero {
+            height: 60vh;
+        }
+    }
+}
+.nav-link {
+    color: theme-color("link");
+    font-weight: 600;
+    
+    &:hover,
+    &.active {
+        color: theme-color("primary");
+    }
+}
+#hero-shape {
+    position:absolute;
+    top: 0;
+    right: -5%;
+    width: 45%;
+    height: 100%;
+    z-index: -1;
+}
+
+/*************/
+/* Features */
+/*************/
+#features {
+    margin: 7.5rem 0 6.25rem;
+    padding-bottom: 6.25rem;
+    border-bottom: 2px solid #f7f7f7;
+}
+#features .feature {
+    padding: 50px 34px 34px 50px;
+    margin-bottom: 34px;
+    box-sizing: border-box;
+    background: #ffffff;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
+    box-shadow: -1px 13px 20px 0 #f0f2f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+        background: theme-color('primary');
+        box-shadow: 0 25px 25px 0 rgba(118, 196, 125, 0.32);
+
+        p,
+        h4 {
+            color: #ffffff;
+        }
+
+        path,
+        polygon,
+        circle {
+            fill: #ffffff;
+        }
+    }
+    p {
+        font-size: $smallText;
+        margin-bottom: 0;
+    }
+    p,
+    h4 {
+        color: #263238;
+        font-weight: 400;
+        transition: color 0.3s ease;
+    }
+    svg {
+        height: 64px;
+
+        path,
+        polygon,
+        circle {
+            fill: theme-color('primary');
+            transition: fill 0.3s ease;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 0;
+    }
+}
+
+/*************/
+/* Blog */
+/*************/
+#blog {
+    margin: 7.5rem 0 6.25rem;
+    padding-bottom: 6.25rem;
+}
+#blog .item {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 36px;
+    position: relative;
+    padding: 4rem 2rem 1.75rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: url('../images/salon_image.jpg');
+    background-size: cover;
+    background-position: center center;
+
+    h3 {
+        color: #ffffff;
+    }
+    p{
+        font-size: $smallText;
+        color: #e2efd2;
+    }
+
+    > div {
+        width: 100%;
+        position: relative;
+        
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        background-image: linear-gradient(to bottom, rgba(97, 118, 127, 0), #324148);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &:nth-child(odd){
+        margin-right: 1.125rem;
+    }
+    &::nth-child(even) {
+        margin-left: 1.125rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        width: calc(50% - 18px);
+        padding: 9.06rem 4.5rem 3.5rem;
+
+        > div {
+            max-width: 280px;
+        }
+    }
+}
+
+/*************/
+/* Sign Up */
+/*************/
+#signup {
+    border-radius: 5px;
+    box-shadow: -1px 25px 20px 0 #f2f2f2;
+    background-color: #ffffff;
+    padding: 80px;
+    text-align: center;
+}
+
+/*************/
+/* Footer */
+/*************/
+footer {
+    padding: 7.8rem 0 0;
+
+    h4 {
+        font-size: $smallText;
+        font-weight: 600;
+    }
+
+    .nav-link {
+        padding-left: 0;
+        padding-right: 0;
+        color: $secondaryText;
+        font-weight: 300;
+    }
+
+    .blog {
+        background: theme-color('primary');
+        padding: 2rem 3.5rem 4.5rem;
+        border-radius: 5px;
+
+        p {
+            &:first-child {
+                font-size: $normalText;
+            }
+
+            font-size: $smallText;
+            font-weight: 300;
+            color: #ffffff;
+        }
+
+        svg {
+            height: 16px;    
+        }
+    }
+
+    .footer-nav {
+        padding-bottom: 7.5rem;
+        border-bottom: 2px solid #eeeeee;
+
+        > div {
+            margin-bottom: 40px;
+            text-align: center;
+
+            @include media-breakpoint-up(sm) {
+                text-align: left;
+            }
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .copyright {
+        padding: 50px 0;
+        text-align: center;
+
+        p {
+            font-size: 14px;
+            color: $secondaryText;
+            margin-top: 20px;
+        }
+
+        @include media-breakpoint-up(sm) {
+            text-align: left;
+            padding: 2.5rem 7.875rem 2.5rem 0;
+
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+}
