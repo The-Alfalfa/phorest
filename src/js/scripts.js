@@ -21,3 +21,7 @@ $.ajax({
        });
     }
 });
+
+$("#mobile-menu, .navigation").click(function(){
+    $("#mobile-menu, .navigation").toggleClass("open");
+});
